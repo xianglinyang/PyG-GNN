@@ -5,13 +5,13 @@ print(torch.__version__)
 
 from torch_geometric.datasets import Planetoid
 from torch_geometric.transforms import NormalizeFeatures
-from models import gcn, gan
+from models import gcn, gat
 
 import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--dataset", "-d", choices=["Cora", "CiteSeer", "PubMed"])
-parser.add_argument("--network", "-n", choices=["gcn", "gan"])
+parser.add_argument("--network", "-n", choices=["vanillaGCN", "gcn", "gan"])
 args = parser.parse_args()
 
 dataset = Planetoid(root='data/Planetoid', name='{}'.format(args.dataset), transform=NormalizeFeatures())
